@@ -181,9 +181,10 @@ android {
 dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
     implementation "com.facebook.react:react-native:+"
-    implementation project(path: ':theoplayer')  // From node_modules
+    implementation 'com.theoplayer.theoplayer-sdk-android:basic-minapi21:+'
     implementation 'com.google.code.gson:gson:2.8.2'
     implementation "androidx.annotation:annotation:1.1.0"
+    implementation 'com.google.ads.interactivemedia.v3:interactivemedia:3.22.2'
 
     if (enableHermes) {
         def hermesPath = "../../node_modules/hermes-engine/android/";
