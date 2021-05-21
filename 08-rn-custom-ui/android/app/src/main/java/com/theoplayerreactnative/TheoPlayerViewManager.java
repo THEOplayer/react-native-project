@@ -59,13 +59,8 @@ public class TheoPlayerViewManager extends SimpleViewManager<THEOplayerView> imp
 
     @Override
     protected THEOplayerView createViewInstance(final ThemedReactContext reactContext) {
-        /*
-          If you want to use Google Ima set googleIma in theoplayer config and add `integration: "google-ima"`
-          in js ads source declaration.
-          You can declarate in THEOplayer configuration builder default js and css paths by using cssPaths() and jsPaths()
-        */
         THEOplayerConfig playerConfig = new THEOplayerConfig.Builder()
-                // .googleIma(true)
+                .license("your_license_string")
                 .jsPaths("file:///android_asset/js/theoplayer.js")
                 .cssPaths("file:///android_asset/css/theoplayer.css")
                 .build();

@@ -95,14 +95,10 @@ public class TheoPlayerViewManager extends SimpleViewManager<THEOplayerView> imp
                 .put("username", "THEO user")
                 .put("content.title", "Demo")
                 .build();
-        /*
-          If you want to use Google Ima set googleIma in theoplayer config(uncomment line below) and add `integration: "google-ima"`
-          in js ads source declaration.
-          You can declarate in THEOplayer configuration builder default js and css paths by using cssPaths() and jsPaths()
-        */
+
         THEOplayerConfig playerConfig = new THEOplayerConfig.Builder()
                 .chromeless(true)
-                // .googleIma(true)
+                .license("your_license_string")
                 // .analytics(youbora)
                 .build();
 

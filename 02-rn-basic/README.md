@@ -26,7 +26,6 @@ Refer to the getting started guide at https://docs.theoplayer.com/getting-starte
 
 Note: Please use minapi16-THEOplayer SDK for Android devices starting from 4.1 and above, while minapi21-THEOplayer SDK can be used for Android 5.0 and above.
 
-
 ## Getting Started on iOS:
 
 ### Import THEOplayer SDK:

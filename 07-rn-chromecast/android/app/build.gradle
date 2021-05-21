@@ -181,9 +181,10 @@ android {
 dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
     implementation "com.facebook.react:react-native:+"
-    implementation project(path: ':theoplayer')  // From node_modules
+    implementation 'com.theoplayer.theoplayer-sdk-android:basic-minapi21:+'
     implementation 'com.google.code.gson:gson:2.8.2'
     implementation "androidx.annotation:annotation:1.1.0"
+    implementation 'com.google.ads.interactivemedia.v3:interactivemedia:3.22.2'
     implementation 'com.android.support:appcompat-v7:27.1.1'
     implementation 'com.android.support:mediarouter-v7:27.1.1'
     implementation 'com.google.android.gms:play-services-cast-framework:15.0.1'

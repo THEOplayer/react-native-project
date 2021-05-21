@@ -17,7 +17,7 @@ class THEOplayerView: UIView {
       THEOplayerCastHelper.setGCKCastContextSharedInstanceWithDefaultCastOptions()
       appDelegate.castContextSet = true
     }
-    
+
     /*
       You can declarate in THEOplayer configuration builder default js and css paths by using cssPaths() and jsPaths()
      */
@@ -26,9 +26,10 @@ class THEOplayerView: UIView {
     let stylePaths = [Bundle.main.path(forResource: "theoplayer", ofType: "css")].compactMap { $0 }
     let playerConfig = THEOplayerConfiguration(
         chromeless: false,
+        pip: nil,
+        license: "your_license_string",
         cssPaths: stylePaths,
-        jsPaths: scripthPaths,
-        googleIMA: false
+        jsPaths: scripthPaths
       )
 
     player = THEOplayer(configuration: playerConfig)
@@ -86,7 +87,7 @@ class THEOplayerView: UIView {
   @objc(setAutoplay:) func setAutoplay(autoplay: Bool) {
     player.autoplay = autoplay
   }
-  
+
   @objc(setFullscreenOrientationCoupling:) func setFullscreenOrientationCoupling(fullscreenOrientationCoupling: Bool) {
     player.fullscreenOrientationCoupling = fullscreenOrientationCoupling
   }

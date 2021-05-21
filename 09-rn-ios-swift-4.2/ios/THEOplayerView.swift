@@ -43,16 +43,16 @@ class THEOplayerView: UIView {
     youbora.put(key: "enableAnalytics", value: "true")
     youbora.put(key: "content.title", value: "Demo")
     /*
-      If you want to use Google Ima set googleIMA in theoplayer config(set true googleIMA in the line below) and add 'integration: "google-ima"' in js ads declaration.
       You can declarate in THEOplayer configuration builder default js and css paths by using cssPaths() and jsPaths()
      */
     let scripthPaths = [Bundle.main.path(forResource: "theoplayer", ofType: "js")].compactMap { $0 }
     let stylePaths = [Bundle.main.path(forResource: "theoplayer", ofType: "css")].compactMap { $0 }
     let playerConfig = THEOplayerConfiguration(
         chromeless: false,
+        pip: nil,
+        license: "your_license_string",
         cssPaths: stylePaths,
         jsPaths: scripthPaths,
-        googleIMA: false
         // analytics: [youbora]
       )
 

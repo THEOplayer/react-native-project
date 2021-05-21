@@ -18,7 +18,11 @@ class THEOplayerView: UIView {
       appDelegate.castContextSet = true
     }
 
-    player = THEOplayer(configuration: THEOplayerConfiguration(chromeless: false))
+    player = THEOplayer(configuration: THEOplayerConfiguration(
+      chromeless: false,
+      pip: nil,
+      license: "your_license_string"
+    ))
 
     //register player on event emitter
     EventEmitter.sharedInstance.registerPlayer(player: player)
@@ -68,7 +72,7 @@ class THEOplayerView: UIView {
   @objc(setAutoplay:) func setAutoplay(autoplay: Bool) {
     player.autoplay = autoplay
   }
-  
+
   @objc(setFullscreenOrientationCoupling:) func setFullscreenOrientationCoupling(fullscreenOrientationCoupling: Bool) {
     player.fullscreenOrientationCoupling = fullscreenOrientationCoupling
   }

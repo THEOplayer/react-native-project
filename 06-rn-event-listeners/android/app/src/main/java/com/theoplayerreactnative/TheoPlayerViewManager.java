@@ -47,7 +47,11 @@ public class TheoPlayerViewManager extends SimpleViewManager<THEOplayerView> imp
 
     @Override
     protected THEOplayerView createViewInstance(final ThemedReactContext reactContext) {
-        playerView = new THEOplayerView(reactContext.getCurrentActivity());
+        THEOplayerConfig playerConfig = new THEOplayerConfig.Builder()
+              .license("your_license_string")
+              .build();
+
+        playerView = new THEOplayerView(reactContext.getCurrentActivity(), playerConfig);
         playerView.setLayoutParams(new LinearLayout.LayoutParams(MATCH_PARENT, MATCH_PARENT));
 
         // Add change listeners
