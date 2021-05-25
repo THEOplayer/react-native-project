@@ -34,6 +34,8 @@ target 'TheoPlayerReactNative' do
   pod 'glog', :podspec => '../node_modules/react-native/third-party-podspecs/glog.podspec'
   pod 'Folly', :podspec => '../node_modules/react-native/third-party-podspecs/Folly.podspec'
 
+  pod 'google-cast-sdk', '4.3.0'
+
   pod 'THEOplayerSDK-basic'
 
   use_native_modules!

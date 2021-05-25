@@ -14,4 +14,7 @@ module.exports = {
       },
     }),
   },
+  resolver: {
+    blacklistRE: /android\/theoplayer\/.*/,
+  },
 };

@@ -22,10 +22,10 @@ class THEOplayerView: UIView {
     let stylePaths = [Bundle.main.path(forResource: "style", ofType: "css")].compactMap { $0 }
     let playerConfig = THEOplayerConfiguration(
         chromeless: false,
-        pip: nil,
-        license: "your_license_string",
         cssPaths: stylePaths,
-        jsPathsPre: scripthPaths
+        jsPathsPre: scripthPaths,
+        pip: nil,
+        license: "your_license_string"
       )
     player = THEOplayer(configuration: playerConfig)
     /*
