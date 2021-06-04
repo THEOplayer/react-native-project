@@ -1,6 +1,7 @@
 import Foundation
 import UIKit
 import THEOplayerSDK
+import GoogleCast
 
 @objc(THEOplayerView)
 class THEOplayerView: UIView {
@@ -15,6 +16,7 @@ class THEOplayerView: UIView {
   init() {
     if let appDelegate = UIApplication.shared.delegate as? AppDelegate, !appDelegate.castContextSet {
       THEOplayerCastHelper.setGCKCastContextSharedInstanceWithDefaultCastOptions()
+      GCKCastContext.sharedInstance().discoveryManager.startDiscovery() // needed with Google Cast Framework 4.6.0+ if using a THEOplayer version below 2.85.0
       appDelegate.castContextSet = true
     }
 
@@ -26,10 +28,10 @@ class THEOplayerView: UIView {
     let stylePaths = [Bundle.main.path(forResource: "theoplayer", ofType: "css")].compactMap { $0 }
     let playerConfig = THEOplayerConfiguration(
         chromeless: false,
-        pip: nil,
-        license: "your_license_string",
         cssPaths: stylePaths,
-        jsPaths: scripthPaths
+        jsPaths: scripthPaths,
+        pip: nil,
+        license: "your_license_string"
       )
 
     player = THEOplayer(configuration: playerConfig)
