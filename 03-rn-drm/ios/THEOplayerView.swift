@@ -18,12 +18,10 @@ class THEOplayerView: UIView {
       appDelegate.castContextSet = true
     }
 
-    /*
-      If you want to use Google Ima set googleIMA in theoplayer config(set true googleIMA in the line below) and add 'integration: "google-ima"' in js ads declaration
-     */
     let playerConfig = THEOplayerConfiguration(
       chromeless: false,
-      googleIMA: false
+      pip: nil,
+      license: "your_license_string"
     )
     player = THEOplayer(configuration: playerConfig)
 
@@ -75,7 +73,7 @@ class THEOplayerView: UIView {
   @objc(setAutoplay:) func setAutoplay(autoplay: Bool) {
     player.autoplay = autoplay
   }
-  
+
   @objc(setFullscreenOrientationCoupling:) func setFullscreenOrientationCoupling(fullscreenOrientationCoupling: Bool) {
     player.fullscreenOrientationCoupling = fullscreenOrientationCoupling
   }

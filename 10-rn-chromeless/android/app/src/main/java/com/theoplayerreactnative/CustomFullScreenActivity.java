@@ -41,8 +41,8 @@ public class CustomFullScreenActivity extends FullScreenActivity implements Seek
         // It allows to use styles and themes defined for material components.
         getDelegate().installViewFactory();
         getDelegate().onCreate(savedInstanceState);
-        THEOplayerViewHolder theoPlayerView = FullScreenSharedContext.fullScreenSharedContext().mostVisibleTpv();
-        getIntent().putExtra("tpvID", theoPlayerView.getTHEOid());
+        // THEOplayerViewHolder theoPlayerView = FullScreenSharedContext.fullScreenSharedContext().mostVisibleTpv();
+        // getIntent().putExtra("tpvID", theoPlayerView.getTHEOid());
         super.onCreate(savedInstanceState);
 
         // Inflating custom view and obtaining an instance of the binding class.

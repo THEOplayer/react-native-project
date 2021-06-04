@@ -18,16 +18,14 @@ class THEOplayerView: UIView {
       appDelegate.castContextSet = true
     }
 
-    /*
-      If you want to use Google Ima set googleIMA in theoplayer config(set true googleIMA in the line below) and add 'integration: "google-ima"' in js ads declaration
-     */
     let scripthPaths = [Bundle.main.path(forResource: "script", ofType: "js")].compactMap { $0 }
     let stylePaths = [Bundle.main.path(forResource: "style", ofType: "css")].compactMap { $0 }
     let playerConfig = THEOplayerConfiguration(
         chromeless: false,
         cssPaths: stylePaths,
         jsPathsPre: scripthPaths,
-        googleIMA: false
+        pip: nil,
+        license: "your_license_string"
       )
     player = THEOplayer(configuration: playerConfig)
     /*
@@ -35,7 +33,7 @@ class THEOplayerView: UIView {
           You can init pure js code without file by evaluateJavaScript.
        */
        player.evaluateJavaScript("init({player: player})")
-    
+
     //register player on event emitter
     EventEmitter.sharedInstance.registerPlayer(player: player)
 
@@ -84,7 +82,7 @@ class THEOplayerView: UIView {
   @objc(setAutoplay:) func setAutoplay(autoplay: Bool) {
     player.autoplay = autoplay
   }
-  
+
   @objc(setFullscreenOrientationCoupling:) func setFullscreenOrientationCoupling(fullscreenOrientationCoupling: Bool) {
     player.fullscreenOrientationCoupling = fullscreenOrientationCoupling
   }

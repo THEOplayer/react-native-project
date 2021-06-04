@@ -12,6 +12,7 @@ import com.facebook.react.uimanager.annotations.ReactProp;
 import com.facebook.react.uimanager.events.RCTEventEmitter;
 import com.facebook.react.uimanager.SimpleViewManager;
 import com.facebook.react.uimanager.ThemedReactContext;
+import com.theoplayer.android.api.THEOplayerConfig;
 import com.theoplayer.android.api.THEOplayerView;
 import com.theoplayer.android.api.source.SourceDescription;
 import com.theoplayer.android.api.event.EventListener;
@@ -47,7 +48,11 @@ public class TheoPlayerViewManager extends SimpleViewManager<THEOplayerView> imp
 
     @Override
     protected THEOplayerView createViewInstance(final ThemedReactContext reactContext) {
-        playerView = new THEOplayerView(reactContext.getCurrentActivity());
+        THEOplayerConfig playerConfig = new THEOplayerConfig.Builder()
+              .license("your_license_string")
+              .build();
+
+        playerView = new THEOplayerView(reactContext.getCurrentActivity(), playerConfig);
         playerView.setLayoutParams(new LinearLayout.LayoutParams(MATCH_PARENT, MATCH_PARENT));
 
         // Add change listeners

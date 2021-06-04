@@ -31,7 +31,7 @@ class THEOplayerView: UIView {
        gatewayURL: "<Your conviva gateway url>",
        contentMetadata: convivaMetadata
     )
-     
+
     /*
       Example youbora usage, add account code & uncomment analytics config declaration
      */
@@ -40,18 +40,15 @@ class THEOplayerView: UIView {
     youbora.put(key: "enableAnalytics", value: "true")
     youbora.put(key: "content.title", value: "Demo")
 
-    /*
-      If you want to use Google Ima set googleIMA in theoplayer config(set true googleIMA in the line below) and add 'integration: "google-ima"' in js ads declaration.
-      You can declarate in THEOplayer configuration builder default js and css paths by using cssPaths() and jsPaths()
-     */
     let scripthPaths = [Bundle.main.path(forResource: "theoplayer", ofType: "js")].compactMap { $0 }
     let stylePaths = [Bundle.main.path(forResource: "theoplayer", ofType: "css")].compactMap { $0 }
     let playerConfig = THEOplayerConfiguration(
         chromeless: false,
         cssPaths: stylePaths,
         jsPaths: scripthPaths,
-        googleIMA: false,
-        analytics: [youbora,conviva]
+        analytics: [youbora,conviva],
+        pip: nil,
+        license: "your_license_string"
       )
 
     player = THEOplayer(configuration: playerConfig)
@@ -109,7 +106,7 @@ class THEOplayerView: UIView {
   @objc(setAutoplay:) func setAutoplay(autoplay: Bool) {
     player.autoplay = autoplay
   }
-  
+
   @objc(setFullscreenOrientationCoupling:) func setFullscreenOrientationCoupling(fullscreenOrientationCoupling: Bool) {
     player.fullscreenOrientationCoupling = fullscreenOrientationCoupling
   }
